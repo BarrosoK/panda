@@ -22,7 +22,7 @@ export class Conversationdatasource extends DataSource<any> {
     this.loadingSubject.complete();
   }
 
-  loadConversations(filter = {}, sortDirection = 1, sortName = 'createdAt', pageIndex = 0, pageSize = 25) {
+  loadConversations(filter = {}, sortDirection = 1, sortName = 'createdAt', pageIndex = 0, pageSize = 5) {
     this.loadingSubject.next(true);
     this.questionsService
       .getConversations(filter, sortDirection, pageIndex, pageSize)
