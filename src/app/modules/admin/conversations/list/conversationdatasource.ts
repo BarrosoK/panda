@@ -31,8 +31,8 @@ export class Conversationdatasource extends DataSource<any> {
         finalize(() => this.loadingSubject.next(false)),
       )
       .subscribe(async (res: any) => {
-        this.totalElement = res.length;
-        return this.gameObject.next(res);
+        this.totalElement = res.total;
+        return this.gameObject.next(res.data);
       });
   }
 
