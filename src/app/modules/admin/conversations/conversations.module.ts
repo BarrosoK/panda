@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ConversationsRoutingModule } from './conversations-routing.module';
-import {FlexModule} from '@angular/flex-layout';
+import {ExtendedModule, FlexModule} from '@angular/flex-layout';
 import {ConversationsComponent} from './list/conversations.component';
 import {SharedModule} from '../../../shared/shared.module';
 import { ViewComponent } from './view/view.component';
@@ -14,7 +14,8 @@ import { ViewComponent } from './view/view.component';
     CommonModule,
     ConversationsRoutingModule,
     SharedModule,
-    FlexModule
+    FlexModule,
+    ExtendedModule
   ]
 })
 export class ConversationsModule { }
