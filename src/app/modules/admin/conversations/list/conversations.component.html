@@ -1,0 +1,68 @@
+<div class="mat-elevation-z8 some-margin m-2 rounded" >
+  <div >
+    <h2 class="m-2">Conversations</h2>
+  </div>
+  <div class="scroll-horizontal">
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      matSort
+      matSortActive="description"
+      matSortDirection="asc"
+      matSortDisableClear
+      aria-label="Elements"
+      style="width: 100%;"
+    >
+      <ng-container matColumnDef="path">
+        <th mat-header-cell *matHeaderCellDef>
+          <div fxLayout="column">
+            <span>Path</span>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.path }}</td>
+      </ng-container>
+
+
+
+
+      <ng-container matColumnDef="createdAt">
+        <th mat-header-cell *matHeaderCellDef>
+          <div fxLayout="column">
+            <span mat-sort-header>Created At</span>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let row">{{ moment(row.createdAt).format('LLLL') }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions" stickyEnd>
+        <th mat-header-cell *matHeaderCellDef>
+          <div fxLayout="column">
+            <span mat-sort-header>Actions</span>
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-button [matMenuTriggerFor]="belowMenu">
+            <mat-icon class="center-icons mat-icon-outlined">more_vert</mat-icon>
+          </button>
+          <mat-menu #belowMenu="matMenu" yPosition="below">
+            <button mat-menu-item (click)="view(row._id)">view</button>
+            <button mat-menu-item (click)="delete(row._id)">delete</button>
+          </mat-menu>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-progress-bar mode="query" color="primary" *ngIf="(dataSource.loading$ | async)"></mat-progress-bar>
+  </div>
+
+  <mat-paginator
+    #paginator
+    [length]="dataSource.getTotalElement()"
+    [pageIndex]="0"
+    [pageSize]="25"
+    [pageSizeOptions]="[5, 10, 25, 50]"
+  >
+  </mat-paginator>
+</div>

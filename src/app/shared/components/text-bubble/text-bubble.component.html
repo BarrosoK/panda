@@ -1,0 +1,1 @@
+<div class="p-4 m-2" [class.speech-bubble-bot]="(message['author'] || author) === 'bot'" [class.speech-bubble]="(message['author'] || author) === 'me'" >{{message['text'] || text}}</div>
