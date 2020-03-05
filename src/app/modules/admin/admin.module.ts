@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
 import {SharedModule} from '../../shared/shared.module';
 import { HomeComponent } from './home/home.component';
-import {FlexModule} from '@angular/flex-layout';
+import {ExtendedModule, FlexModule} from '@angular/flex-layout';
 import {ConversationsModule} from './conversations/conversations.module';
 
 
@@ -15,7 +15,7 @@ import {ConversationsModule} from './conversations/conversations.module';
     AdminRoutingModule,
     ConversationsModule,
     SharedModule,
-    FlexModule
+    FlexModule,
   ]
 })
 export class AdminModule { }
