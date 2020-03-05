@@ -1,6 +1,6 @@
 <button  (click)="reset()" *ngIf="path.length > 0" type="button" class="btn btn-elegant">Recommencer</button>
 <button  (click)="back()" *ngIf="path.length > 0" type="button" class="btn btn-elegant">Retour</button>
-<div style="width: 50%" class="p-4">
+<div style="width: 50%" ngStyle.lt-md="width: 100%" class="p-4">
   <app-text-bubble *ngFor="let message of conversation" [message]="message"></app-text-bubble>
 
   <ul class="list-group" >
