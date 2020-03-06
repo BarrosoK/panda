@@ -48,6 +48,7 @@
               *ngFor="let item of menuItems"
               [routerLinkActive]="['is-active']"
               [routerLink]="item.link"
+              (click)="clickOnNav()"
               fxLayout="row"
               fxLayoutAlign="start center"
             >

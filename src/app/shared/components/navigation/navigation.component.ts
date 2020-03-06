@@ -3,6 +3,9 @@ import {FormControl} from '@angular/forms';
 import {animateLogo, animateText, onMainContentChange, onSideNavChange} from './animation';
 import {MatDrawer} from '@angular/material/sidenav';
 import {Router} from '@angular/router';
+import {Observable} from 'rxjs';
+import {BreakpointObserver, Breakpoints, BreakpointState} from '@angular/cdk/layout';
+import {first, map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-navigation',
@@ -21,11 +24,11 @@ export class NavigationComponent implements OnInit {
   public sideNavState = true;
   public linkText = true;
 
-  // isHandset$: Observable<boolean> = this.breakpointObserver
-  //   .observe(Breakpoints.Handset)
-  //   .pipe(map(result => result.matches));
+  public isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(map((result: BreakpointState) => result.matches));
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private breakpointObserver: BreakpointObserver) {
     // manage multiple roles with concat menuItems to unique
     this.authItems = [
       {
@@ -83,4 +86,14 @@ export class NavigationComponent implements OnInit {
     }, 75);
   }
 
+  clickOnNav() {
+    this.isHandset$.pipe(
+      first()
+    ).subscribe(handset => {
+      if (handset) {
+        this.drawer.toggle();
+      }
+    });
+
+  }
 }
