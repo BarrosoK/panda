@@ -20,7 +20,7 @@
           Answer: {{question.answer}}
         </div>
         <app-question *ngFor="let item of (question.sub_questions | keyvalue);first as isFirst"
-                      [index]="index + '' + item.key" [question]="item.value"></app-question>
+                      [index]="index + '' + item.key" [question]="item.value" (updated)="updateTransfer()"></app-question>
 
 
 

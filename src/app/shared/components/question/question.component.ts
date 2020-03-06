@@ -24,4 +24,8 @@ export class QuestionComponent implements OnInit {
       this.updated.emit(true);
     });
   }
+
+  updateTransfer() {
+    this.updated.emit(true);
+  }
 }
