@@ -1,0 +1,89 @@
+<!--Accordion wrapper-->
+<div class="accordion md-accordion" attr.id="accordionEx{{index}}" role="tablist" aria-multiselectable="true">
+
+  <!-- Accordion card -->
+  <div class="card">
+
+    <!-- Card header -->
+    <div class="card-header" role="tab" id="headingOne{{index}}">
+      <a data-toggle="collapse" attr.data-parent="#accordionEx{{index}}" href="#collapseOne{{index}}" aria-expanded="false"
+         attr.aria-controls="collapseOne{{index}}">
+        <h5 class="mb-0">{{index}} {{question.question}}<i class="fas fa-angle-down rotate-icon"></i>
+        </h5>
+      </a>
+    </div>
+
+    <!-- Card body -->
+    <div id="collapseOne{{index}}" class="collapse" role="tabpanel" attr.aria-labelledby="headingOne{{index}}" attr.data-parent="#accordionEx{{index}}">
+      <div class="card-body">
+        <div>
+          Answer: {{question.answer}}
+        </div>
+        <app-question *ngFor="let item of (question.sub_questions | keyvalue);first as isFirst"
+                      [index]="index + '' + item.key" [question]="item.value"></app-question>
+
+
+
+
+        <!-- Accordion card -->
+        <div class="card">
+
+          <!-- Card header -->
+          <div class="card-header" role="tab" id="headingOneQuestion{{index}}">
+            <a data-toggle="collapse"href="#collapseOneQuestion{{index}}" aria-expanded="false"
+               attr.aria-controls="collapseOneQuestion{{index}}">
+              <h5 class="mb-0">
+                Add Question <i class="fas fa-angle-down rotate-icon"></i>
+              </h5>
+            </a>
+          </div>
+
+          <!-- Card body -->
+          <div id="collapseOneQuestion{{index}}" class="collapse" role="tabpanel" attr.aria-labelledby="headingOneQuestion{{index}}" >
+            <div class="card-body">
+              <div fxLayoutAlign="center center">
+
+                <!-- Card -->
+                <div class="card" style="width: 50%">
+
+                  <!-- Card content -->
+                  <div class="card-body">
+
+                    <!-- Title -->
+                    <h4 class="card-title"><a>Add a question</a></h4>
+
+                    <!-- Default input -->
+                    <label for="question{{index}}">Question</label>
+                    <input type="text" [(ngModel)]="questionText" id="question{{index}}" class="form-control">
+
+                    <!-- Default input -->
+                    <label for="answer{{index}}">Answer</label>
+                    <input type="text"  [(ngModel)]="answer" id="answer{{index}}" class="form-control">
+
+                    <!-- Button -->
+                    <button  (click)="addQuestion(index)" type="button" class="btn btn-elegant">Add</button>
+
+                  </div>
+
+                </div>
+                <!-- Card -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- Accordion card -->
+
+
+
+
+      </div>
+    </div>
+
+  </div>
+  <!-- Accordion card -->
+
+</div>
+<!-- Accordion wrapper -->
+
+

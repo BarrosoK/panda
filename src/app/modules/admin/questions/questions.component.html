@@ -1,0 +1,28 @@
+<app-question *ngFor="let item of (questions | keyvalue); let index = index;first as isFirst"
+              [index]="item.key " [question]="item.value" (updated)="refresh()"></app-question>
+
+
+<!-- Card -->
+<div class="card" style="width: 50%">
+
+  <!-- Card content -->
+  <div class="card-body">
+
+    <!-- Title -->
+    <h4 class="card-title"><a>Add a question</a></h4>
+
+    <!-- Default input -->
+    <label for="question">Question</label>
+    <input type="text" [(ngModel)]="question" id="question" class="form-control">
+
+    <!-- Default input -->
+    <label for="answer">Answer</label>
+    <input type="text"  [(ngModel)]="answer" id="answer" class="form-control">
+
+    <!-- Button -->
+    <button  (click)="addQuestion(-1)" type="button" class="btn btn-elegant">Add</button>
+
+  </div>
+
+</div>
+<!-- Card -->
