@@ -6,16 +6,19 @@ import {SharedModule} from '../../shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import {ExtendedModule, FlexModule} from '@angular/flex-layout';
 import {ConversationsModule} from './conversations/conversations.module';
+import { QuestionsComponent } from './questions/questions.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
-  declarations: [HomeComponent],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    ConversationsModule,
-    SharedModule,
-    FlexModule,
-  ]
+  declarations: [HomeComponent, QuestionsComponent],
+    imports: [
+        CommonModule,
+        AdminRoutingModule,
+        ConversationsModule,
+        SharedModule,
+        FlexModule,
+        FormsModule,
+    ]
 })
 export class AdminModule { }

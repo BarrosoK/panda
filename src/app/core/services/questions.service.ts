@@ -16,6 +16,14 @@ export class QuestionsService {
     );
   }
 
+  addQuestion(path, question, answer) {
+    return this.http.post(`${environment.apiUrl}/questions/add`, {path, question, answer});
+  }
+
+  getQuestionJson() {
+    return this.http.get(`${environment.apiUrl}/questions/all`);
+  }
+
   ask(path?: number[]) {
     return this.http.post<any>(`${environment.apiUrl}/questions/`, {id: path});
   }

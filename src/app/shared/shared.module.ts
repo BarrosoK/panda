@@ -4,22 +4,26 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import {MaterialModule} from './material/material.module';
 import {RouterModule} from '@angular/router';
 import { TextBubbleComponent } from './components/text-bubble/text-bubble.component';
+import { QuestionComponent } from './components/question/question.component';
+import {FormsModule} from '@angular/forms';
 
 
 
 
 @NgModule({
-  declarations: [NavigationComponent, TextBubbleComponent],
+  declarations: [NavigationComponent, TextBubbleComponent, QuestionComponent],
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports: [
     CommonModule,
     MaterialModule,
     NavigationComponent,
-    TextBubbleComponent
+    TextBubbleComponent,
+    QuestionComponent
   ]
 })
 export class SharedModule { }
